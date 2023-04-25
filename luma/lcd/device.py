@@ -522,6 +522,7 @@ class st7735(backlit_device, __framebuffer_mixin):
         order = 0x08 if bgr else 0x00
 
         self.command(0x01)                       # reset
+        sleep(0.12)
         self.command(0x11)                       # sleep out & booster on
         self.command(0xB1, 0x01, 0x2C, 0x2D)     # frame rate control: normal mode
         self.command(0xB2, 0x01, 0x2C, 0x2D)     # frame rate control: idle mode
